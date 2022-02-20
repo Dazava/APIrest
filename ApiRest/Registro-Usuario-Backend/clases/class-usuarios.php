@@ -1,11 +1,11 @@
 <?php
-    Class usuario{
+    Class Usuario{
         private $nombre;
         private $apellido;
         private $fechaNacimiento;
         private $nacionalidad;
 
-        public function constructor($nombre,$apellido,$fechaNacimiento,$nacionalidad){
+        public function __construct($nombre,$apellido,$fechaNacimiento,$nacionalidad){
             $this->nombre=$nombre;
             $this->apellido=$apellido;
             $this->fechaNacimiento=$fechaNacimiento;
@@ -49,11 +49,13 @@
         }
 
         public function guardarUsuario(){
+            $contenidoArchivo= file_get_contents("../datos/usuarios.json");
+            $usuarios= json_decode($contenidoArchivo, true);
             $usuarios[]=array(
                 "nombre"=>$this->nombre,
                 "apellido"=>$this->apellido,
                 "fechaNacimiento"=>$this->fechaNacimiento,
-                "nacionalidad"=>$this->nacionalidad
+                "nacionalidad"=>$this-> nacionalidad
             );
             $archivo= fopen("../datos/usuarios.json","w");
             fwrite($archivo,json_encode($usuarios));

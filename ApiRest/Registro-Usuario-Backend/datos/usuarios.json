@@ -1,3 +1,17 @@
 [
-
+    {   "nombre": "Juan",
+        "apellido":"Pedro",
+        "fechaNacimiento": "12/12/2022",
+        "Nacionalidad":"Colombia"
+    },
+    {   "nombre": "Sara",
+        "apellido":"Salvatore",
+        "fechaNacimiento": "12/12/2022",
+        "Nacionalidad":"Colombia"
+    },
+    {   "nombre": "Delijah",
+        "apellido":"Zapata",
+        "fechaNacimiento": "12/12/2022",
+        "Nacionalidad":"Colombia"
+    }
 ]

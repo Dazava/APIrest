@@ -1,5 +1,5 @@
 <?php
-    //header ("Content-Type: application/jason");
+    header ("Content-Type: application/jason");
     switch ($_SERVER['REQUEST_METHOD']){
         case 'POST':
             $_POST=json_decode(file_get_contents('PHP: //input'),true);

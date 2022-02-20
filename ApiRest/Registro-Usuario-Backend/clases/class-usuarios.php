@@ -61,9 +61,14 @@
             fwrite($archivo,json_encode($usuarios));
             fclose($archivo);
         }
-        public function crearUsuario(){
-            
         }
+        
+        public static function obtenerUsuarios(){
+            $contenidoArchivo= file_get_contents("../datos/usuarios.json");
+            echo $contenidoArchivo;            
+        }
+
+        
         public function actualizarUsuario(){
             
         }

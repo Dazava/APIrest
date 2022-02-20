@@ -2,12 +2,18 @@
     header ("Content-Type: application/jason");
     include_once("../clases/class-usuarios.php");
     switch ($_SERVER['REQUEST_METHOD']){
+        
         case 'POST': //guardar
             $_POST=json_decode(file_get_contents('PHP://input'),true);
-            $usuario= new Usuario($_POST["nombre"],$_POST["apellido"],$_POST["fechaNacimiento"],$_POST["nacionalidad"])};
+
+            $usuario = new Usuario($_POST["nombre"],$_POST["apellido"],$_POST["fechaNacimiento"],$_POST["nacionalidad"]);
+            
             $usuario->guardarUsuario();
+
             $resultado['mensaje']="Guardar el usuario con la información: ".json_encode($_POST);
-            echo json_encode($resultado);   
+            echo json_encode($resultado);  
+        
+             
         break;
         case 'GET':
             if(isset($_GET['id'])){

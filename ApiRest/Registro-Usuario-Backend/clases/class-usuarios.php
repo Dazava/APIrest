@@ -50,7 +50,7 @@
 
         public function guardarUsuario(){
             $contenidoArchivo= file_get_contents("../datos/usuarios.json");
-            $usuarios= json_decode($contenidoArchivo, true);
+            $usuarios= json_decode($contenidoArchivo,true);
             $usuarios[]=array(
                 "nombre"=>$this->nombre,
                 "apellido"=>$this->apellido,
@@ -61,11 +61,24 @@
             fwrite($archivo,json_encode($usuarios));
             fclose($archivo);
         }
-        }
+        
         
         public static function obtenerUsuarios(){
             $contenidoArchivo= file_get_contents("../datos/usuarios.json");
             echo $contenidoArchivo;            
+        }
+
+        public static function obtenerUsuario($id){
+            $contenidoArchivo= file_get_contents("../datos/usuarios.json");
+            if(isset($contenidoArchivo)){
+                $usuarios=json_decode($contenidoArchivo,true);
+                for($i=0;$i<=count($usuarios);$i++){
+                    if($i==($id-1)){
+                        $usuario=$usuarios[$i];
+                        echo json_encode($usuario);
+                    }
+                }
+            }          
         }
 
         
